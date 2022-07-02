@@ -63,11 +63,6 @@ public class SportsEventService {
                     throw new EventGenerationException("Event with Id "+eventId+" already Exist!");
                 });
 
-        eventRepository.findEventByEventName(eventName)
-                .ifPresent(p -> {
-                    throw new EventGenerationException("Event already Exist!");
-                });
-
         sportsRepository.findSportBySportsName(sportsName)
                 .orElseThrow(() -> new SportNotFoundException("Event cant be generated since Sport "+sportsName+" doesnt exist in DB!"));
 
